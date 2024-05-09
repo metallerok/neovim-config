@@ -26,19 +26,5 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
-require('vgit').setup()
+require("vgit").setup()
 
-local builtin = require("telescope.builtin")
-vim.keymap.set('n', '<C-p>', builtin.find_files, {})
-vim.keymap.set('n', '<leader>df', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>e', '<cmd>:Neotree toggle<CR>', {})
-
-local configs = require("nvim-treesitter.configs")
-configs.setup({
-    ensure_installed = { "python", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html" },
-    sync_install = false,
-    highlight = { enable = true },
-    indent = { enable = true },  
-})
-
-vim.cmd.colorscheme "OceanicNext"
