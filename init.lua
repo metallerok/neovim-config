@@ -5,6 +5,7 @@ vim.cmd("set shiftwidth=4")
 vim.cmd("set nu")
 vim.cmd("set listchars=space:·")
 vim.cmd("set list")
+vim.cmd("set nohlsearch")
 vim.opt.termguicolors = true
 vim.g.mapleader = " "
 
@@ -32,8 +33,17 @@ local plugins = {
     },
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
     {'f-person/git-blame.nvim', name="git-blame"},
-    {'tanvirtin/vgit.nvim', requires = {'nvim-lua/plenary.nvim'},
-}
+    {'tanvirtin/vgit.nvim', requires = {'nvim-lua/plenary.nvim'}},
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+            "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+        }
+    },
 }
 local opts = {}
 
@@ -43,6 +53,7 @@ require('vgit').setup()
 local builtin = require("telescope.builtin")
 vim.keymap.set('n', '<C-p>', builtin.find_files, {})
 vim.keymap.set('n', '<leader>df', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>e', '<cmd>:Neotree toggle<CR>', {})
 
 local configs = require("nvim-treesitter.configs")
 configs.setup({
