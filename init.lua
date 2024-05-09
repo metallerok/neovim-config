@@ -31,10 +31,14 @@ local plugins = {
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+    {'f-person/git-blame.nvim', name="git-blame"},
+    {'tanvirtin/vgit.nvim', requires = {'nvim-lua/plenary.nvim'},
+}
 }
 local opts = {}
 
 require("lazy").setup(plugins, opts)
+require('vgit').setup()
 
 local builtin = require("telescope.builtin")
 vim.keymap.set('n', '<C-p>', builtin.find_files, {})
