@@ -42,8 +42,9 @@ return {
         vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
         vim.keymap.set("n", "<leader>a1", function() harpoon:list():replace_at(1) end)
         vim.keymap.set("n", "<leader>a2", function() harpoon:list():replace_at(2) end)
-        -- vim.keymap.set("n", "<leader>a1", function() harpoon:list():add(1) end)
-        -- vim.keymap.set("n", "<leader>a2", function() harpoon:list():add(2) end)
+        vim.keymap.set("n", "<leader>a3", function() harpoon:list():replace_at(3) end)
+        vim.keymap.set("n", "<leader>a4", function() harpoon:list():replace_at(4) end)
+        vim.keymap.set("n", "<leader>a5", function() harpoon:list():replace_at(5) end)
 
         vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
         vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
