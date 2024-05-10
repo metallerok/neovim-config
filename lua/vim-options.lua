@@ -6,5 +6,6 @@ vim.cmd("set nu")
 vim.cmd("set listchars=space:·")
 vim.cmd("set list")
 vim.cmd("set nohlsearch")
+vim.keymap.set('v', 'y', '"+y', {})
 vim.opt.termguicolors = true
 vim.g.mapleader = " "
