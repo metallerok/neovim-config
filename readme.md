@@ -5,6 +5,7 @@ sudo apt update
 sudo apt install make gcc ripgrep unzip git xclip neovim
 ```
 
+## Also for LSP need NoneJS v20+
 
 ```bash
 git clone https://github.com/metallerok/neovim-config.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
