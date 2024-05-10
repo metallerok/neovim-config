@@ -10,6 +10,21 @@ return {
         },
         config = function()
             vim.keymap.set('n', '<leader>e', '<cmd>:Neotree toggle<CR>', {})
+            require("neo-tree").setup({
+                filesystem = {
+                    filtered_items = {
+                        hide_gitignored = false,
+                        hide_by_pattern = {
+                            "__pycache__",
+                            "*.egg-info",
+                        },
+                        always_show = {
+                            ".gitignore",
+                            ".venv",
+                        }
+                    }
+                }
+            })
         end
     },
 }
