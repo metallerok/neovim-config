@@ -25,9 +25,16 @@ return {
             lspconfig.pyright.setup({
                 capabilities = capabilities,
             })
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-            vim.keymap.set('n', '<F12>', vim.lsp.buf.definition, {})
-            vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
+            -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+            -- vim.keymap.set('n', '<F12>', vim.lsp.buf.definition, {})
+            -- vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
+
+            local wk = require("which-key")
+            wk.register({
+                ["K"] = {vim.lsp.buf.hover, "Method docs"},
+                ["<leader>ca"] = {vim.lsp.buf.code_action, "Code action"},
+                ["<F12>"] = {vim.lsp.buf.definition, "Go to definition"},
+            })
         end
 
     }
