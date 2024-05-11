@@ -53,8 +53,13 @@ return {
             })
 
             local builtin = require("telescope.builtin")
-            vim.keymap.set('n', '<C-p>', builtin.find_files, {})
-            vim.keymap.set('n', '<leader>df', builtin.live_grep, {})
+            local wk = require("which-key")
+            wk.register({
+                ["<C-P>"] = {builtin.find_files, "Find file"},
+                ["<leader>"] = {
+                    g = {builtin.live_grep, "Live grep"},
+                }
+            })
         end
     },
     {

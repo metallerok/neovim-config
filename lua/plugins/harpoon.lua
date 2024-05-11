@@ -35,25 +35,25 @@ return {
             }):find()
         end
 
-        vim.keymap.set(
-            "n", "<C-e>", function() toggle_telescope(harpoon:list()) end,
-            { desc = "Open harpoon window" }
-        )
-        vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
-        vim.keymap.set("n", "<leader>a1", function() harpoon:list():replace_at(1) end)
-        vim.keymap.set("n", "<leader>a2", function() harpoon:list():replace_at(2) end)
-        vim.keymap.set("n", "<leader>a3", function() harpoon:list():replace_at(3) end)
-        vim.keymap.set("n", "<leader>a4", function() harpoon:list():replace_at(4) end)
-        vim.keymap.set("n", "<leader>a5", function() harpoon:list():replace_at(5) end)
-
-        vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
-        vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
-        vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
-        vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
-        vim.keymap.set("n", "<leader>5", function() harpoon:list():select(5) end)
-
-        -- Toggle previous & next buffers stored within Harpoon list
-        vim.keymap.set("n", "<leader>n", function() harpoon:list():prev() end)
-        vim.keymap.set("n", "<leader>N", function() harpoon:list():next() end)
+        local wk = require("which-key")
+        wk.register({
+            ["<C-e>"] = {function() toggle_telescope(harpoon:list()) end, "Open harpoon window"},
+            ["<leader>h"] = {
+                name = "+harpoon",
+                a = {function() harpoon:list():add() end, "Harpoon add file"},
+                ["1"] = {function() harpoon:list():replace_at(1) end, "Harpoon add to 1 position"},
+                ["2"] = {function() harpoon:list():replace_at(2) end, "Harpoon add to 2 position"},
+                ["3"] = {function() harpoon:list():replace_at(3) end, "Harpoon add to 3 position"},
+                ["4"] = {function() harpoon:list():replace_at(4) end, "Harpoon add to 4 position"},
+                ["5"] = {function() harpoon:list():replace_at(5) end, "Harpoon add to 5 position"},
+            },
+            ["<leader>1"] = {function() harpoon:list():select(1) end, "Harpoon select file from 1 position"},
+            ["<leader>2"] = {function() harpoon:list():select(2) end, "Harpoon select file from 2 position"},
+            ["<leader>3"] = {function() harpoon:list():select(3) end, "Harpoon select file from 3 position"},
+            ["<leader>4"] = {function() harpoon:list():select(4) end, "Harpoon select file from 4 position"},
+            ["<leader>5"] = {function() harpoon:list():select(5) end, "Harpoon select file from 5 position"},
+            ["<leader>n"] = {function() harpoon:list():next() end, "Harpoon next"},
+            ["<leader>p"] = {function() harpoon:list():prev() end, "Harpoon prev"},
+        })
     end
 }
