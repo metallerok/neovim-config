@@ -12,5 +12,7 @@ vim.keymap.set('v', 'y', '"+y', {})
 vim.keymap.set('i', '<c-s>', '<Esc>:w<CR>', {})
 vim.keymap.set('n', '<c-s>', ':w<CR>', {})
 vim.keymap.set('v', '<c-s>', '<Esc>:w<CR>', {})
+vim.keymap.set('n', '<c-d>', '<c-d>zz', {})
+vim.keymap.set('n', '<c-u>', '<c-u>zz', {})
 vim.opt.termguicolors = true
 vim.g.mapleader = " "
