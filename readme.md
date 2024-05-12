@@ -27,13 +27,35 @@ git clone https://github.com/metallerok/neovim-config.git "${XDG_CONFIG_HOME:-$H
 <leader>e
 ```
 
-## Add file to harpoon
+# Tips
+## to update higlihted strings
+with selected block
 ```
-<leader>a1 -- puts file to first posistion
-<leader>a2 -- puts file to second posistion
+test
+the_best
+```
+`:norm I_some_text`
+```
+test_some_text
+the_best_some_text
 ```
 
+## to increace numbers
+
 ```
-<leader>1 -- show first file
-<leader>2 -- show second file
+test0
+test0
+test0
 ```
+with celected block
+
+`g<C-a>`
+
+```
+test1
+test2
+test3
+```
+
+## find replace
+``:s/foo/bar/gc`, `g` - current line, `c` - confirm ask

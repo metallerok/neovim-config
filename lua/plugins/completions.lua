@@ -60,12 +60,27 @@ return {
               TypeParameter = '  ',
             }
 
+            local compare = cmp.config.compare
+
             cmp.setup({
                 formatting = {
                     format = function(_, vim_item)
                         vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
                         return vim_item
                     end,
+                },
+                sorting = {
+                    comparators = {
+                        compare.offset,
+                        compare.exact,
+                        compare.score,
+                        compare.recently_used,
+                        compare.locality,
+                        compare.kind,
+                        -- compare.sort_text,
+                        compare.length,
+                        compare.order,
+                    },
                 },
                 snippet = {
                   -- REQUIRED - you must specify a snippet engine
@@ -94,10 +109,9 @@ return {
                   ['<CR>'] = cmp.mapping.confirm({ select = true }),
                 },
                 sources = cmp.config.sources({
+                  { name = 'buffer' },
                   { name = 'nvim_lsp' },
                   { name = 'luasnip' }, -- For luasnip users.
-                }, {
-                  { name = 'buffer' },
                 })
             })
         end
