@@ -14,5 +14,9 @@ vim.keymap.set('n', '<c-s>', ':w<CR>', {})
 vim.keymap.set('v', '<c-s>', '<Esc>:w<CR>', {})
 vim.keymap.set('n', '<c-d>', '<c-d>zz', {})
 vim.keymap.set('n', '<c-u>', '<c-u>zz', {})
+vim.keymap.set('n', 'n', 'nzzzv', {})
+vim.keymap.set('n', 'N', 'Nzzzv', {})
+
+-- vim.keymap.set('x', '<leader>P', "\"_dP", {}) -- not understand
 vim.opt.termguicolors = true
 vim.g.mapleader = " "
