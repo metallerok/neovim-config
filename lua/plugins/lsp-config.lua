@@ -31,6 +31,8 @@ return {
                 ["K"] = {vim.lsp.buf.hover, "Method docs"},
                 ["<leader>ca"] = {vim.lsp.buf.code_action, "Code action"},
                 ["<F12>"] = {vim.lsp.buf.definition, "Go to definition"},
+                ["<leader>gr"] = {vim.lsp.buf.definition, "Go to reference"},
+                ["<F6>"] = {vim.lsp.buf.rename, "Go to reference"},
                 ["<leader>lr"] = {":LspRestart<CR>", "Restart LSP server"},
             })
         end

@@ -59,3 +59,10 @@ test3
 
 ## find replace
 ``:s/foo/bar/gc`, `g` - current line, `c` - confirm ask
+
+## refactor during project
+```
+:vimgrep /var/ `find . -type f`
+:copen
+:cdo %s/var/new_var/gc
+```
