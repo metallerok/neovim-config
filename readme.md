@@ -66,3 +66,14 @@ test3
 :copen
 :cdo %s/var/new_var/gc
 ```
+
+```
+<leader>g - live grep
+<C-q> - view all occurencies
+```
+
+```
+:vim /todo\|fixme/ **/*.py
+:copen
+```
+
