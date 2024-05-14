@@ -9,7 +9,7 @@ return {
 
        local function toggle_telescope(harpoon_files)
             local file_paths = {}
-            for i, item in ipairs(harpoon_files.items) do
+            for _, item in ipairs(harpoon_files.items) do
                 table.insert(file_paths, item.value)
             end
 
@@ -47,7 +47,8 @@ return {
 
         local wk = require("which-key")
         wk.register({
-            ["<C-e>"] = {function() toggle_telescope(harpoon:list()) end, "Open harpoon window"},
+            -- ["<C-e>"] = {function() toggle_telescope(harpoon:list()) end, "Open harpoon window"},
+            ["<C-e>"] = {function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, "Open harpoon window"},
             ["<leader>h"] = {
                 name = "+harpoon",
                 a = {function() harpoon:list():add() end, "Harpoon add file"},
