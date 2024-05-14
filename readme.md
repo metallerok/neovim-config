@@ -2,7 +2,7 @@
 ```bash
 sudo add-apt-repository ppa:neovim-ppa/unstable -y
 sudo apt update
-sudo apt install make gcc ripgrep unzip git xclip neovim
+sudo apt install make gcc ripgrep unzip git xclip neovim trash-cli
 ```
 
 ## Also for LSP need NoneJS v20+
