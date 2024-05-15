@@ -5,6 +5,11 @@ return {
         config = function()
             require('telescope').setup({
               defaults = {
+                layout_config = {
+                  horizontal = {
+                    preview_cutoff = 0,
+                  },
+                },
                 -- configure to use ripgrep
                 vimgrep_arguments = {
                   "rg",
@@ -58,6 +63,11 @@ return {
                 ["<C-P>"] = {builtin.find_files, "Find file"},
                 ["<leader>"] = {
                     g = {builtin.live_grep, "Live grep"},
+                    o = {builtin.buffers, "Opened buffers"},
+                    m = {builtin.marks, "Marks"},
+                    rr = {builtin.lsp_references, "LSP References"},
+                    i = {builtin.lsp_implementations, "LSP implementations"},
+                    s = {builtin.lsp_document_symbols, "LSP document symbols"},
                 }
             })
         end

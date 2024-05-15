@@ -21,6 +21,7 @@ return {
                         always_show = {
                             ".gitignore",
                             ".venv",
+                            ".editorconfig",
                         }
                     },
                     commands = {
