@@ -22,6 +22,7 @@ return {
                             ".gitignore",
                             ".venv",
                             ".editorconfig",
+                            ".env.*",
                         }
                     },
                     commands = {

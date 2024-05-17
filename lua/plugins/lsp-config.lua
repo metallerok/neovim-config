@@ -9,7 +9,15 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "pyright", "vuels", "html", "sqlls" }
+                ensure_installed = {
+                    "lua_ls",
+                    "pyright",
+                    "volar",
+                    "html",
+                    "sqlls",
+                    "dockerls",
+                    "tsserver",
+                }
             })
         end
     },
@@ -26,8 +34,14 @@ return {
                 capabilities = capabilities,
             })
 
-            lspconfig.vuels.setup({
+            lspconfig.volar.setup({
                 capabilities = capabilities,
+                filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+                init_options = {
+                    vue = {
+                        hybridMode = false,
+                    },
+                },
             })
 
             lspconfig.html.setup({
@@ -35,6 +49,12 @@ return {
             })
 
             lspconfig.sqlls.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.tsserver.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.dockerls.setup({
                 capabilities = capabilities,
             })
 
