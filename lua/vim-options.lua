@@ -21,3 +21,13 @@ vim.keymap.set('n', 'N', 'Nzzzv', {})
 -- vim.keymap.set('x', '<leader>P', "\"_dP", {}) -- not understand
 vim.opt.termguicolors = true
 vim.g.mapleader = " "
+
+vim.api.nvim_set_hl(0, 'Whitespace', { fg='#343D46', bold=false })
+
+function LineNumberColors()
+    vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#6699CC', bold=false })
+    vim.api.nvim_set_hl(0, 'LineNr', { fg='white', bold=false })
+    vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#EC5f67', bold=false })
+end
+
+LineNumberColors()
