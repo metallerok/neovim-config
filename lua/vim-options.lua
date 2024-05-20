@@ -7,6 +7,7 @@ vim.cmd("set relativenumber")
 vim.cmd("set listchars=space:·")
 vim.cmd("set list")
 vim.cmd("set nohlsearch")
+vim.cmd("set scrolloff=10")
 vim.o.termguicolors = false
 
 vim.keymap.set('v', 'y', '"+y', {})
