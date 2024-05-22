@@ -62,9 +62,11 @@ return {
             wk.register({
                 ["K"] = {vim.lsp.buf.hover, "Method docs"},
                 ["<leader>ca"] = {vim.lsp.buf.code_action, "Code action"},
-                ["<F12>"] = {vim.lsp.buf.definition, "Go to definition"},
-                ["<leader>gr"] = {vim.lsp.buf.definition, "Go to reference"},
-                ["<F6>"] = {vim.lsp.buf.rename, "Go to reference"},
+                ["<leader>gd"] = {vim.lsp.buf.definition, "Go to definition"},
+                ["<leader>gD"] = {vim.lsp.buf.declaration, "Go to declaration"},
+                ["<leader>gr"] = {vim.lsp.buf.reference, "Go to reference"},
+                ["<leader>gi"] = {vim.lsp.buf.implementation, "Go to implementation"},
+                ["<leader>rn"] = {vim.lsp.buf.rename, "Rename"},
                 ["<leader>lr"] = {":LspRestart<CR>", "Restart LSP server"},
             })
         end
