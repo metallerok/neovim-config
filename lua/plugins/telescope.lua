@@ -23,9 +23,10 @@ return {
 
                   -- Exclude some patterns from search
                   "--glob=!**/.git/*",
-                  "--glob=!**/.venv*",
+                  "--glob=!**/.venv/bin/*",
                   "--glob=!**/__pycache__/*",
                   "--glob=!**/.idea/*",
+                  "--glob=!**/.tox/*",
                   "--glob=!**/.vscode/*",
                   "--glob=!**/build/*",
                   "--glob=!**/dist/*",
@@ -44,7 +45,8 @@ return {
                     "--hidden",
                     "--no-ignore-vcs",
                     "--glob=!**/.git/*",
-                    "--glob=!**/.venv*",
+                    "--glob=!**/.venv/bin/*",
+                    "--glob=!**/.tox/*",
                     "--glob=!**/__pycache__/*",
                     "--glob=!**/.idea/*",
                     "--glob=!**/.vscode/*",
@@ -61,8 +63,8 @@ return {
             local wk = require("which-key")
             wk.register({
                 ["<C-P>"] = {builtin.find_files, "Find file"},
+                ["<C-g>"] = {builtin.live_grep, "Live grep"},
                 ["<leader>"] = {
-                    g = {builtin.live_grep, "Live grep"},
                     o = {builtin.buffers, "Opened buffers"},
                     m = {builtin.marks, "Marks"},
                     rr = {builtin.lsp_references, "LSP References"},

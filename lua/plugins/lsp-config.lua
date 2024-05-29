@@ -12,6 +12,8 @@ return {
                 ensure_installed = {
                     "lua_ls",
                     "pyright",
+                    -- "jedi_language_server",
+                    -- "pylsp",
                     "volar",
                     "html",
                     "sqlls",
@@ -33,6 +35,12 @@ return {
             lspconfig.pyright.setup({
                 capabilities = capabilities,
             })
+            -- lspconfig.jedi_language_server.setup({
+            --     capabilities = capabilities,
+            -- })
+            -- lspconfig.pylsp.setup({
+            --     capabilities = capabilities,
+            -- })
 
             lspconfig.volar.setup({
                 capabilities = capabilities,
@@ -64,7 +72,7 @@ return {
                 ["<leader>ca"] = {vim.lsp.buf.code_action, "Code action"},
                 ["<leader>gd"] = {vim.lsp.buf.definition, "Go to definition"},
                 ["<leader>gD"] = {vim.lsp.buf.declaration, "Go to declaration"},
-                ["<leader>gr"] = {vim.lsp.buf.reference, "Go to reference"},
+                ["<leader>gR"] = {vim.lsp.buf.reference, "Go to reference"},
                 ["<leader>gi"] = {vim.lsp.buf.implementation, "Go to implementation"},
                 ["<leader>rn"] = {vim.lsp.buf.rename, "Rename"},
                 ["<leader>lr"] = {":LspRestart<CR>", "Restart LSP server"},
