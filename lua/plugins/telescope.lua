@@ -27,6 +27,7 @@ return {
                   "--glob=!**/__pycache__/*",
                   "--glob=!**/.idea/*",
                   "--glob=!**/.tox/*",
+                  "--glob=!**/*_docs_*.html",
                   "--glob=!**/.vscode/*",
                   "--glob=!**/build/*",
                   "--glob=!**/dist/*",

@@ -71,15 +71,15 @@ return {
                 },
                 sorting = {
                     comparators = {
+                        compare.locality,
+                        compare.recently_used,
                         compare.score,
                         compare.offset,
+                        compare.order,
                         compare.exact,
-                        compare.recently_used,
-                        compare.locality,
                         compare.kind,
                         -- compare.sort_text,
-                        compare.length,
-                        compare.order,
+                        -- compare.length,
                     },
                 },
                 snippet = {

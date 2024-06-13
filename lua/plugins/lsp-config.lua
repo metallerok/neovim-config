@@ -13,7 +13,7 @@ return {
                     "lua_ls",
                     "pyright",
                     -- "jedi_language_server",
-                    -- "pylsp",
+                    "pylsp",
                     "volar",
                     "html",
                     "sqlls",
@@ -32,15 +32,73 @@ return {
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,
             })
-            lspconfig.pyright.setup({
-                capabilities = capabilities,
-            })
+            -- lspconfig.pyright.setup({
+            --     capabilities = capabilities,
+            -- })
             -- lspconfig.jedi_language_server.setup({
             --     capabilities = capabilities,
             -- })
-            -- lspconfig.pylsp.setup({
-            --     capabilities = capabilities,
-            -- })
+            --
+            local venv_path = os.getenv('VIRTUAL_ENV')
+            local py_path = nil
+            -- decide which python executable to use for mypy
+            if venv_path ~= nil then
+                py_path = venv_path .. "/bin/python3"
+            else
+                py_path = ".venv/bin/python"
+            end
+
+            lspconfig.pylsp.setup({
+                capabilities = capabilities,
+                settings = {
+                    pylsp = {
+                        plugins = {
+                            black = { enabled = false },
+                            autopep8 = { enabled = false },
+                            yapf = { enabled = false },
+                            flake8 = {
+                                enabled = true,
+                                maxLineLength = 120
+                            },
+                            pylint = { enabled = false, executable = "pylint" },
+                            ruff = { enabled = false },
+                            pyflakes = { enabled = false },
+                            pycodestyle = { enabled = false },
+                              -- type checker
+                            pylsp_mypy = {
+                                enabled = true,
+                                overrides = { "--python-executable", py_path, true },
+                                report_progress = true,
+                                live_mode = false
+                            },
+                            -- auto-completion options
+                            jedi_completion = {
+                                enabled = false,
+                                fuzzy = true,
+                            },
+                            pylsp_rope = {
+                                enabled = true,
+                            },
+                            rope_autoimport = {
+                                enabled = true,
+                                memory = true,
+                                completions = {
+                                    enabled = true
+                                },
+                                code_actions = {
+                                    enabled = true
+                                }
+                            },
+                            rope_completion = {
+                                enabled = true,
+                                eager = true
+                            },
+                             -- import sorting
+                            isort = { enabled = true },
+                        }
+                    }
+                }
+            })
 
             lspconfig.volar.setup({
                 capabilities = capabilities,
