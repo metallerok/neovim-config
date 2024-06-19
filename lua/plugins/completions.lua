@@ -71,8 +71,8 @@ return {
                 },
                 sorting = {
                     comparators = {
-                        compare.locality,
                         compare.recently_used,
+                        compare.locality,
                         compare.score,
                         compare.offset,
                         compare.order,

@@ -29,16 +29,6 @@ return {
             local lspconfig = require("lspconfig")
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-            lspconfig.lua_ls.setup({
-                capabilities = capabilities,
-            })
-            -- lspconfig.pyright.setup({
-            --     capabilities = capabilities,
-            -- })
-            -- lspconfig.jedi_language_server.setup({
-            --     capabilities = capabilities,
-            -- })
-            --
             local venv_path = os.getenv('VIRTUAL_ENV')
             local py_path = nil
             -- decide which python executable to use for mypy
@@ -48,8 +38,39 @@ return {
                 py_path = ".venv/bin/python"
             end
 
+            lspconfig.lua_ls.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.pyright.setup({
+                capabilities = capabilities,
+                on_attach = function (client)
+                    client.workspace.didChangeWatchedFiles.dynamicRegistration = true
+                end,
+                settings = {
+                    pyright = {
+                        -- reportAssignmentType = "warning",
+                        -- typeCheckingMode = "standard",
+                        -- reportArgumentType = "warning",
+                        -- reportAssertTypeFailure = "warning",
+                        -- reportInvalidTypeForm = "warning",
+                        -- reportAttributeAccessIssue = "warning",
+                        -- reportInvalidTypeArguments = "warning",
+                        -- reportReturnType = "warning",
+                        -- reportUnusedImport = "error",
+                        venvPath = venv_path
+                    }
+                }
+            })
+            -- lspconfig.jedi_language_server.setup({
+            --     capabilities = capabilities,
+            -- })
+            --
+
             lspconfig.pylsp.setup({
                 capabilities = capabilities,
+                on_attach = function (client)
+                  client.server_capabilities.renameProvider = false
+                end,
                 settings = {
                     pylsp = {
                         plugins = {
@@ -66,7 +87,7 @@ return {
                             pycodestyle = { enabled = false },
                               -- type checker
                             pylsp_mypy = {
-                                enabled = true,
+                                enabled = false,
                                 overrides = { "--python-executable", py_path, true },
                                 report_progress = true,
                                 live_mode = false
@@ -76,11 +97,11 @@ return {
                                 enabled = false,
                                 fuzzy = true,
                             },
-                            pylsp_rope = {
-                                enabled = true,
+                            jedi_definition = {
+                                enabled = false,
                             },
                             rope_autoimport = {
-                                enabled = true,
+                                enabled = false,
                                 memory = true,
                                 completions = {
                                     enabled = true
@@ -90,7 +111,7 @@ return {
                                 }
                             },
                             rope_completion = {
-                                enabled = true,
+                                enabled = false,
                                 eager = true
                             },
                              -- import sorting
