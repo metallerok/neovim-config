@@ -55,6 +55,7 @@ return {
                     "--glob=!**/dist/*",
                     "--glob=!**/yarn.lock",
                     "--glob=!**/package-lock.json",
+                    "--glob=!**/*_docs_*.html",
                   },
                 },
               },

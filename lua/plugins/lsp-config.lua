@@ -27,7 +27,9 @@ return {
         "neovim/nvim-lspconfig",
         config = function()
             local lspconfig = require("lspconfig")
-            local capabilities = require('cmp_nvim_lsp').default_capabilities()
+            -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
+            local capabilities = vim.lsp.protocol.make_client_capabilities()
+            capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
 
             local venv_path = os.getenv('VIRTUAL_ENV')
             local py_path = nil
@@ -43,9 +45,9 @@ return {
             })
             lspconfig.pyright.setup({
                 capabilities = capabilities,
-                on_attach = function (client)
-                    client.workspace.didChangeWatchedFiles.dynamicRegistration = true
-                end,
+                -- on_attach = function (client)
+                --     client.workspace.didChangeWatchedFiles.dynamicRegistration = true
+                -- end,
                 settings = {
                     pyright = {
                         -- reportAssignmentType = "warning",
