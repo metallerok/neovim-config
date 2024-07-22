@@ -148,15 +148,15 @@ return {
             })
 
             local wk = require("which-key")
-            wk.register({
-                ["K"] = {vim.lsp.buf.hover, "Method docs"},
-                ["<leader>ca"] = {vim.lsp.buf.code_action, "Code action"},
-                ["<leader>gd"] = {vim.lsp.buf.definition, "Go to definition"},
-                ["<leader>gD"] = {vim.lsp.buf.declaration, "Go to declaration"},
-                ["<leader>gR"] = {vim.lsp.buf.reference, "Go to reference"},
-                ["<leader>gi"] = {vim.lsp.buf.implementation, "Go to implementation"},
-                ["<leader>rn"] = {vim.lsp.buf.rename, "Rename"},
-                ["<leader>lr"] = {":LspRestart<CR>", "Restart LSP server"},
+            wk.add({
+                {"K", vim.lsp.buf.hover, desc="Method docs" },
+                {"<leader>ca", vim.lsp.buf.code_action, desc="Code action" },
+                {"<leader>gd", vim.lsp.buf.definition, desc="Go to definition" },
+                {"<leader>gD", vim.lsp.buf.declaration, desc="Go to declaration" },
+                {"<leader>gv", vim.lsp.buf.reference, desc="Go to reference" },
+                {"<leader>gi", vim.lsp.buf.implementation, desc="Go to implementation" },
+                {"<leader>rn", vim.lsp.buf.rename, desc="Rename" },
+                {"<leader>lr", ":LspRestart<CR>", desc="Restart LSP server" },
             })
         end
 

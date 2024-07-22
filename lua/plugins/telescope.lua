@@ -63,16 +63,14 @@ return {
 
             local builtin = require("telescope.builtin")
             local wk = require("which-key")
-            wk.register({
-                ["<C-P>"] = {builtin.find_files, "Find file"},
-                ["<C-g>"] = {builtin.live_grep, "Live grep"},
-                ["<leader>"] = {
-                    o = {builtin.buffers, "Opened buffers"},
-                    m = {builtin.marks, "Marks"},
-                    rr = {builtin.lsp_references, "LSP References"},
-                    i = {builtin.lsp_implementations, "LSP implementations"},
-                    s = {builtin.lsp_document_symbols, "LSP document symbols"},
-                }
+            wk.add({
+                {"<C-P>", builtin.find_files, desc="Find file" },
+                {"<C-g>", builtin.live_grep, desc="Live grep" },
+                {"<leader>o", builtin.buffers, desc="Opened buffers" },
+                {"<leader>m", builtin.marks, desc="Marks" },
+                {"<leader>rr", builtin.lsp_references, desc="LSP References" },
+                {"<leader>i", builtin.lsp_implementations, desc="LSP implementations" },
+                {"<leader>s", builtin.lsp_document_symbols, desc="LSP document symbols" },
             })
         end
     },

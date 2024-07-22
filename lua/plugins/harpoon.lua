@@ -46,35 +46,11 @@ return {
         end
 
         local wk = require("which-key")
-        wk.register({
-            -- ["<C-e>"] = {function() toggle_telescope(harpoon:list()) end, "Open harpoon window"},
-            ["<C-e>"] = {function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, "Open harpoon window"},
-            ["<leader>h"] = {
-                name = "+harpoon",
-                a = {function() harpoon:list():add() end, "Harpoon add file"},
-                ["1"] = {function() harpoon:list():replace_at(1) end, "Harpoon add to 1 position"},
-                ["2"] = {function() harpoon:list():replace_at(2) end, "Harpoon add to 2 position"},
-                ["3"] = {function() harpoon:list():replace_at(3) end, "Harpoon add to 3 position"},
-                ["4"] = {function() harpoon:list():replace_at(4) end, "Harpoon add to 4 position"},
-                ["5"] = {function() harpoon:list():replace_at(5) end, "Harpoon add to 5 position"},
-                ["6"] = {function() harpoon:list():replace_at(6) end, "Harpoon add to 6 position"},
-                ["7"] = {function() harpoon:list():replace_at(7) end, "Harpoon add to 7 position"},
-                ["8"] = {function() harpoon:list():replace_at(8) end, "Harpoon add to 8 position"},
-                ["9"] = {function() harpoon:list():replace_at(9) end, "Harpoon add to 9 position"},
-                ["0"] = {function() harpoon:list():replace_at(0) end, "Harpoon add to 0 position"},
-            },
-            ["<leader>1"] = {function() harpoon:list():select(1) end, "Harpoon select file from 1 position"},
-            ["<leader>2"] = {function() harpoon:list():select(2) end, "Harpoon select file from 2 position"},
-            ["<leader>3"] = {function() harpoon:list():select(3) end, "Harpoon select file from 3 position"},
-            ["<leader>4"] = {function() harpoon:list():select(4) end, "Harpoon select file from 4 position"},
-            ["<leader>5"] = {function() harpoon:list():select(5) end, "Harpoon select file from 5 position"},
-            ["<leader>6"] = {function() harpoon:list():select(6) end, "Harpoon select file from 6 position"},
-            ["<leader>7"] = {function() harpoon:list():select(7) end, "Harpoon select file from 7 position"},
-            ["<leader>8"] = {function() harpoon:list():select(8) end, "Harpoon select file from 8 position"},
-            ["<leader>9"] = {function() harpoon:list():select(9) end, "Harpoon select file from 9 position"},
-            ["<leader>0"] = {function() harpoon:list():select(0) end, "Harpoon select file from 0 position"},
-            ["<leader>n"] = {function() harpoon:list():next() end, "Harpoon next"},
-            ["<leader>p"] = {function() harpoon:list():prev() end, "Harpoon prev"},
+        wk.add({
+            {"<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, desc="Open harpoon window" },
+            {"<leader>ha", function() harpoon:list():add() end, desc="Harpoon add file" },
+            {"<leader>hn", function() harpoon:list():next() end, desc="Harpoon next" },
+            {"<leader>hp", function() harpoon:list():prev() end, desc="Harpoon prev" },
         })
     end
 }
