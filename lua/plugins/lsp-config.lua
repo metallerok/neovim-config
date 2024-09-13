@@ -10,15 +10,15 @@ return {
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = {
-                    "lua_ls",
+                    -- "lua_ls",
                     "pyright",
                     -- "jedi_language_server",
                     "pylsp",
-                    "volar",
                     "html",
                     "sqlls",
                     "dockerls",
                     "tsserver",
+                    "volar",
                 }
             })
         end
@@ -40,9 +40,9 @@ return {
                 py_path = ".venv/bin/python"
             end
 
-            lspconfig.lua_ls.setup({
-                capabilities = capabilities,
-            })
+            -- lspconfig.lua_ls.setup({
+            --     capabilities = capabilities,
+            -- })
             lspconfig.pyright.setup({
                 capabilities = capabilities,
                 -- on_attach = function (client)
@@ -129,6 +129,9 @@ return {
                 init_options = {
                     vue = {
                         hybridMode = false,
+                    },
+                    typescript = {
+                        tsdk = "/home/administrator/.local/share/nvim/mason/packages/vue-language-server/node_modules/typescript/lib/"
                     },
                 },
             })
