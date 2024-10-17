@@ -105,6 +105,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         "hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
         "nvim-telescope/telescope.nvim", -- Optional: For using slash commands
+        "echasnovski/mini.pick",
         { "stevearc/dressing.nvim", opts = {} }, -- Optional: Improves `vim.ui.select`
     },
     config = function()
@@ -132,8 +133,16 @@ return {
                   -- ["Authorization"] = "Bearer ${api_key}",
                 },
                 parameters = {
-                  sync = true,
+                    sync = true,
                 },
+                schema = {
+                    model = {
+                        default = "llama3:latest"
+                    },
+                    temperature = {
+                        default = 0.2
+                    },
+                }
               })
             end,
           },
