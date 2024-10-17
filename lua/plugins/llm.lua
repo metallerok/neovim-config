@@ -124,8 +124,11 @@ return {
           adapters = {
             openai = function()
               return require("codecompanion.adapters").extend("openai", {
+                opts = {
+                    stream = true,
+                },
                 env = {
-                  url = "http://192.168.88.59:1234",
+                  url = "http://localhost:1234",
                   api_key = " ",
                 },
                 headers = {
@@ -137,7 +140,7 @@ return {
                 },
                 schema = {
                     model = {
-                        default = "llama3:latest"
+                        default = "Llama 3.2 3B Instruct"
                     },
                     temperature = {
                         default = 0.2
