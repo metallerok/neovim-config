@@ -1,0 +1,25 @@
+-- return {
+--     "huggingface/llm.nvim",
+--     config = function()
+--         require("llm").setup({
+--             url = "http://localhost:1234", -- llm-ls uses "/v1/completions"
+--             model="llama3.2 3B Instruct",
+--             backend = "openai",
+--             context_window = 8192,
+--             tokens_to_clear = { "<|endoftext|>" },
+--             fim = {
+--                 enabled = true,
+--                 prefix = "<fim_prefix>",
+--                 middle = "<fim_middle>",
+--                 suffix = "<fim_suffix>",
+--             },
+--             request_body = {
+--                 temperature = 0.2,
+--                 top_p = 0.95,
+--             }
+--         })
+--     end
+-- }
+--
+
+return {}
