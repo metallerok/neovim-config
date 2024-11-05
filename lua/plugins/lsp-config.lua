@@ -17,7 +17,7 @@ return {
                     "html",
                     "sqlls",
                     "dockerls",
-                    "tsserver",
+                    "ts_ls",
                     "volar",
                 }
             })
@@ -143,7 +143,7 @@ return {
             lspconfig.sqlls.setup({
                 capabilities = capabilities,
             })
-            lspconfig.tsserver.setup({
+            lspconfig.ts_ls.setup({
                 capabilities = capabilities,
             })
             lspconfig.dockerls.setup({
